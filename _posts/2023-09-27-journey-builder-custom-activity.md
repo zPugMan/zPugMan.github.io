@@ -154,6 +154,7 @@ The endpoints required are:
 
 ## Validate
 At this point, the express app created should have enough of the required components to run. Before we do, let's add the package `nodemon` for dynamic updates while the app is running locally.
+
 ```npm install nodemon --save-dev```
 
 Let's add a purpose built _dev_ script to our `package.json` file.
@@ -165,6 +166,7 @@ Let's add a purpose built _dev_ script to our `package.json` file.
 ```
 
 Start up app via:
+
 ```npm run dev```
 
 Validate the routes desired.
