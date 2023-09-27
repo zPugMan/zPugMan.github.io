@@ -1,5 +1,30 @@
-# Chirpy Starter
+# Usage
 
+# Jekyll-Compose
+Comands for composing.
+```bundle exec jekyll <cmd>```
+
+With the following commands available:
+```
+  draft      # Creates a new draft post with the given NAME
+  post       # Creates a new post with the given NAME
+  publish    # Moves a draft into the _posts directory and sets the date
+  unpublish  # Moves a post back into the _drafts directory
+  page       # Creates a new page with the given NAME
+  rename     # Moves a draft to a given NAME and sets the title
+  compose    # Creates a new file with the given NAME
+```
+
+## Drafts
+Publishing a draft
+```bundle exec jekyll publish <draft file>.md```
+
+View drafts prior to publishing
+```bundle exec jekyll server --drafts```
+or
+```bundle exec jekyll server --watch --drafts```
+
+# Chirpy Starter
 [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
 [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
 
