@@ -67,7 +67,7 @@ For this step, we are modifying the `config.json` of our custom activity. As our
  * use JWT via `useJwt:true`
  * use the SALT added previously (and stored under the external key value: `3187c870-034e-4a41-a578-4660b495e215`) be utilized for the encryption. This is specified by the `customerKey` key.
 
- ### 4 - Supporting JWT
+### 4 - Supporting JWT
  Finally, a few code changes to the express app responsible for serving our custom activity.
 
  * Add support for `application/jwt`
