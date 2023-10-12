@@ -8,7 +8,7 @@ tags:
 - ETL
 - Data
 ---
-Using the power of Python with Pandas and [Plotly](https://plotly.com/python/plotly-express/), I wanted to create a runbook to serve as a quick healthcheck every morning over coffee. The existing data pipelines were built to log key statistics on every run to audit tables. Using the audit tables as a basis, I built a Jupyter notebook to monitor key stats that would normally be buried in the ETL tool's SQLite database that was not built for analytics.
+Using the power of Python with Pandas and [Plotly](https://plotly.com/python/plotly-express/), I wanted to create a runbook to serve as a quick healthcheck every morning over coffee. The existing data pipelines were built to log key statistics on every run to audit tables. With the audit tables as a basis, I built a Jupyter notebook to monitor key stats that would normally be buried in the ETL tool's SQLite database that was not built for analytical purposes. This allows me to slowly wakeup as I caffeinate and plan my day according to visual observations. It's a win-win!
 
 ## Setup
 ### Connectivity
@@ -29,7 +29,7 @@ engine = create_engine(
 ```
 
 ### Data
-With the connection defined, I'm not free to populate my Panda dataframes.
+With the connection defined, I'm now free to populate my Panda dataframes.
 ```py
 #load dataframes
 df_audit = pd.read_sql(sql=auto_log, con=engine, index_col=['automation_name'], parse_dates=['start_date','end_date'])
@@ -53,7 +53,7 @@ df = df_audit[df_audit.end_date.notnull()].reset_index()
 ## Plotly Gantt
 My first exposure to Gantt charts was limited to waterfall project methodologies. In this use case, I'm able to draw a graphical representation to quickly inform me of:
 * missed data pipeline runs
-* anomalies in typical run times
+* anomalies in typical run times as runtimes are depicted by width
 
 Below is an example of this in practice:
 
@@ -62,7 +62,7 @@ Below is an example of this in practice:
 Note how you can determine:
 * `22_101_auto` (indicated in pink) failed to execute on 9/24
 * `23_101_auto` (indicated in yellow) recently came on-line on 9/25
-* `17_104_auto` and `20_102_auto` have occassional spikes in runtimes and that those can be safely be ignored based on historical trends
+* `17_104_auto` and `20_102_auto` have occassional spikes in runtimes (indicated by width) and that those can be safely be ignored based on historical trends
 
 The above was created using the following:
 ```py
